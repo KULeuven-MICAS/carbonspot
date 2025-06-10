@@ -21,7 +21,7 @@ If you find this repository useful to your work, please consider cite our paper 
 The size of current AI models is increasing drastically in recent years together with model accuracy and capability. This trend can be observed in the figure below (data is collected from [here](https://paperswithcode.com/sota/image-classification-on-imagenet)). At the same time, this demands powerful hardware and significant energy consumption, bringing our community attention to evaluate the environmental impacts -- or more specific, the equivalent carbon footprint.
 
 <p align="center">
-    <img src="https://github.com/KULeuven-MICAS/carbonspot/blob/master/model_size_trend.png" width="100%" alt="The trend of increasing model size and accuracy">
+    <img src="https://github.com/KULeuven-MICAS/carbonspot/blob/master/model_size_trends.png" width="100%" alt="The trend of increasing model size and accuracy">
 </p>
 
 ## Framework Capability
