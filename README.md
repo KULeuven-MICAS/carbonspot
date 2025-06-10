@@ -30,6 +30,7 @@ CarbonSpot is capabile of:
 
 - Figuring out the optimal mapping for a user-defined accelerator architectures, including digital TPU-like architecture, analog In-Memory-Computing architecture and digital In-Memory-Computing architecture.
 - Reporting the energy, latency and carbon footprint for a given architecture and workload.
+- Comparing the optimal architectures in terms of performance and in terms of carbon footprint, with respective optimal mapping.
 - Evaluating the carbon footprint under Continuous-Active (CA) scenario and Periodically-Active (PA) scenario.
 - Reporting the cost breakdown for energy, latency and carbon footprint.
 
