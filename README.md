@@ -100,7 +100,7 @@ Follwing papers are used to generate the data points in the figure. Due to the p
 The function `zigzag_similation_and_result_storage()` simulates and evalutes the performance and carbon footprint for given architectures. An example demonstration is shown below.
 
 <p align="center">
-    <img src="https://github.com/KULeuven-MICAS/carbonspot/blob/master/output_example.png" width="100%" alt="An example demonstration of CarbonSpot output">
+    <img src="https://github.com/KULeuven-MICAS/carbonspot/blob/master/carbon_example.png" width="100%" alt="An example demonstration of CarbonSpot output">
 </p>
 <p align="center"><b>Figure 2:</b> An example demonstration of CarbonSpot output. The figures show the carbon footprint under PA scenario (y axis) and CA scenario (x axis) across different architecture solutions. Different colors mean different SRAM size. (enable <b>active_plot=True</b> to see which point corresponds to what architecture solution.) </p>
 
