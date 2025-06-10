@@ -59,7 +59,7 @@ The function `experiment_1_literature_trend()` can output the equivalent carbon 
 </p>
 <p align="center"><b>Figure 1:</b> Carbon cost (y axis) versus energy efficiency (x axis) of AI accelerators from the literature in 16-28 nm CMOS technology when applied on the (a) MLPerf-Tiny and (b) MLPerf-Mobile benchmarks. The pie charts show the carbon breakdown into operational (green) and embodied (red) carbon costs for each design. TOP/s/W has been normalized to INT8. The most performant and most carbon-efficient designs are circled out.</p>
 
-Due to the page limitation, please forgive us not listing the paper citations not in the paper. are listed below instead of in the CarbonSpot paper.
+Follwing papers are used to generate the data points in the figure. Due to the page limitation, please forgive us not able to include the citations in the paper.
 
 [1] [Chih, Yu-Der, et al. "16.4 An 89TOPS/W and 16.3 TOPS/mm 2 all-digital SRAM-based full-precision compute-in memory macro in 22nm for machine-learning edge applications." 2021 IEEE International Solid-State Circuits Conference (ISSCC). Vol. 64. IEEE, 2021.](https://ieeexplore.ieee.org/abstract/document/9365766)
 
