@@ -16,6 +16,10 @@ If you find this repository useful to your work, please consider cite our paper 
 }
 ``` -->
 
+## Motivation
+
+
+
 ## Framework Capability
 
 CarbonSpot is capabile of:
@@ -59,7 +63,7 @@ The function `experiment_1_literature_trend()` can output the equivalent carbon 
 </p>
 <p align="center"><b>Figure 1:</b> Carbon cost (y axis) versus energy efficiency (x axis) of AI accelerators from the literature in 16-28 nm CMOS technology when applied on the (a) MLPerf-Tiny and (b) MLPerf-Mobile benchmarks. The pie charts show the carbon breakdown into operational (green) and embodied (red) carbon costs for each design. TOP/s/W has been normalized to INT8. The most performant and most carbon-efficient designs are circled out.</p>
 
-Follwing papers are used to generate the data points in the figure. Due to the page limitation, please forgive us not able to include the citations in the paper.
+Follwing papers are used to generate the data points in the figure. Due to the page limitation, please forgive us not able to include the citations in the paper. We here sincerely want to express our gratitude to these amazing works.
 
 [1] [Chih, Yu-Der, et al. "16.4 An 89TOPS/W and 16.3 TOPS/mm 2 all-digital SRAM-based full-precision compute-in memory macro in 22nm for machine-learning edge applications." 2021 IEEE International Solid-State Circuits Conference (ISSCC). Vol. 64. IEEE, 2021.](https://ieeexplore.ieee.org/abstract/document/9365766)
 
@@ -89,7 +93,12 @@ Follwing papers are used to generate the data points in the figure. Due to the p
 
 ### Simulate and estimate the performance and carbon footprint of user-defined accelerators
 
-The function `zigzag_similation_and_result_storage()` simulates and evalutes the performance and carbon footprint for given architectures.
+The function `zigzag_similation_and_result_storage()` simulates and evalutes the performance and carbon footprint for given architectures. An example demonstration is shown below.
+
+<p align="center">
+    <img src="https://github.com/KULeuven-MICAS/carbonspot/blob/master/output_demo.png" width="100%" alt="An example demonstration of CarbonSpot output">
+</p>
+<p align="center"><b>Figure 2:</b> An example demonstration of CarbonSpot output. The figures show the carbon footprint under PA scenario (y axis) and CA scenario (x axis) across different architecture solutions. Different colors mean different SRAM size. (enable <b>active_plot=True<b> to see which point corresponds to what architecture solution.) </p>
 
 
 ## Performance Model Description
@@ -112,7 +121,7 @@ A summary of the hardware settings for these chips is provided in the following 
 B<sub>i</sub>/B<sub>o</sub>/B<sub>cycle</sub>: input precision/weight precision/number of bits processed per cycle per input.
 #cell_group: the number of cells sharing one entry to computation logic.
 
-The validation details are summarized below and can be found at [here](https://github.com/KULeuven-MICAS/zigzag-imc).
+The validation details can be found at [here](https://github.com/KULeuven-MICAS/zigzag-imc).
 
 Our digital performance model is based on [ZigZag](https://github.com/KULeuven-MICAS/zigzag). The validation details can be found at [here](https://kuleuven-micas.github.io/zigzag/hardware.html).
 
