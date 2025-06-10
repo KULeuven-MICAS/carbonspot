@@ -3,7 +3,7 @@
 This repository presents the CarbonSpot, a analytical design space exploration (DSE) framework evaluating the performance and the carbon footprint for AI accelerators.
 CarbonSpot bridges the gap between the performance-oriented DSE framework and the carbon-oriented DSE framework, enabling the architecture comparison between the most performant hardware choice and the most carbon-friendly hardware choice within one framework.
 
-The part of the performance simulator is inherited from our previous framework [ZigZag-IMC](https://github.com/KULeuven-MICAS/zigzag-imc) and [ZigZag](https://github.com/KULeuven-MICAS/zigzag), which analytical accelerators models that have been validated against chip results.
+The part of the performance simulator is inherited from our previous framework [ZigZag-IMC](https://github.com/KULeuven-MICAS/zigzag-imc) and [ZigZag](https://github.com/KULeuven-MICAS/zigzag), with analytical accelerators performance models that have been validated against chip results.
 
 If you find this repository useful to your work, please consider cite our paper in your study: [TBD]
 
