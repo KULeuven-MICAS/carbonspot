@@ -31,14 +31,14 @@ If you find this table useful to your work, please consider cite our paper in yo
 
 | Workload Suite                                                         | Network Name | Usecase                     | Targetd Dataset           | Workload Size (MB) | Frame/Second Requirement | Paper Reference |
 |------------------------------------------------------------------------|--------------|-----------------------------|---------------------------|--------------------|--------------------------|-----------------|
-| [MLPerf-Tiny](https://github.com/mlcommons/tiny/tree/master/benchmark) | DS-CNN       | Keyword Spotting            | Speech Commands           | 0.06               | 10                       | [1](https://arxiv.org/abs/1804.03209) |
-| [MLPerf-Tiny](https://github.com/mlcommons/tiny/tree/master/benchmark) | MobileNet-V1 | Visual Wake Words           | Visual Wake Words Dataset | 0.9                | 0.75                     | [2](https://arxiv.org/abs/1906.05721) |
-| [MLPerf-Tiny](https://github.com/mlcommons/tiny/tree/master/benchmark) | ResNet8      | Binary Image Classification | Cifar10                   | 0.3                | 25                       | [3](https://www.cs.utoronto.ca/~kriz/learning-features-2009-TR.pdf), [4](https://openaccess.thecvf.com/content_CVPR_2020/papers/Chen_Cross-View_Tracking_for_Multi-Human_3D_Pose_Estimation_at_Over_100_CVPR_2020_paper.pdf) |
-| [MLPerf-Tiny](https://github.com/mlcommons/tiny/tree/master/benchmark) | AutoEncoder  | Anamaly Detection           | ToyADMOS                  | 1.0                | 1                        | [5](https://arxiv.org/abs/1909.09347) |
-| [MLPerf-Mobile](https://github.com/mlcommons/mobile_models/tree/main/v0_7/tflite) | MobileNetV3           | Image Classification            | ImageNet                     | 15.6              | 25*                       | [6](https://openaccess.thecvf.com/content_ICCV_2019/papers/Howard_Searching_for_MobileNetV3_ICCV_2019_paper.pdf) |
-| [MLPerf-Mobile](https://github.com/mlcommons/mobile_models/tree/main/v0_7/tflite) | SSD MobileNetV2       | Object Classification           | COCO                         | 64.4              | 25*                       | [7](https://vidishmehta204.medium.com/object-detection-using-ssd-mobilenet-v2-7ff3543d738d) |
-| [MLPerf-Mobile](https://github.com/mlcommons/mobile_models/tree/main/v0_7/tflite) | DeepLab MobileNetV2   | Semantic Segmentation           | ImageNet ADE20K Training Set | 8.7               | 25*                       | [8](https://openaccess.thecvf.com/content_cvpr_2018/papers/Sandler_MobileNetV2_Inverted_Residuals_CVPR_2018_paper.pdf) |
-| [MLPerf-Mobile](https://github.com/mlcommons/mobile_models/tree/main/v0_7/tflite) | MobileBert            | Language Understanding          | NA                           | 96                | 25*                       | [9](https://arxiv.org/abs/2004.02984) |
+| [MLPerf-Tiny](https://github.com/mlcommons/tiny/tree/master/benchmark) | DS-CNN       | Keyword Spotting            | Speech Commands           | 0.06               | 10                       | [[1]](https://arxiv.org/abs/1804.03209) |
+| [MLPerf-Tiny](https://github.com/mlcommons/tiny/tree/master/benchmark) | MobileNet-V1 | Visual Wake Words           | Visual Wake Words Dataset | 0.9                | 0.75                     | [[2]](https://arxiv.org/abs/1906.05721) |
+| [MLPerf-Tiny](https://github.com/mlcommons/tiny/tree/master/benchmark) | ResNet8      | Binary Image Classification | Cifar10                   | 0.3                | 25                       | [[3]](https://www.cs.utoronto.ca/~kriz/learning-features-2009-TR.pdf), [[4]](https://openaccess.thecvf.com/content_CVPR_2020/papers/Chen_Cross-View_Tracking_for_Multi-Human_3D_Pose_Estimation_at_Over_100_CVPR_2020_paper.pdf) |
+| [MLPerf-Tiny](https://github.com/mlcommons/tiny/tree/master/benchmark) | AutoEncoder  | Anamaly Detection           | ToyADMOS                  | 1.0                | 1                        | [[5]](https://arxiv.org/abs/1909.09347) |
+| [MLPerf-Mobile](https://github.com/mlcommons/mobile_models/tree/main/v0_7/tflite) | MobileNetV3           | Image Classification            | ImageNet                     | 15.6              | 25*                       | [[6]](https://openaccess.thecvf.com/content_ICCV_2019/papers/Howard_Searching_for_MobileNetV3_ICCV_2019_paper.pdf) |
+| [MLPerf-Mobile](https://github.com/mlcommons/mobile_models/tree/main/v0_7/tflite) | SSD MobileNetV2       | Object Classification           | COCO                         | 64.4              | 25*                       | [[7]](https://vidishmehta204.medium.com/object-detection-using-ssd-mobilenet-v2-7ff3543d738d) |
+| [MLPerf-Mobile](https://github.com/mlcommons/mobile_models/tree/main/v0_7/tflite) | DeepLab MobileNetV2   | Semantic Segmentation           | ImageNet ADE20K Training Set | 8.7               | 25*                       | [[8]](https://openaccess.thecvf.com/content_cvpr_2018/papers/Sandler_MobileNetV2_Inverted_Residuals_CVPR_2018_paper.pdf) |
+| [MLPerf-Mobile](https://github.com/mlcommons/mobile_models/tree/main/v0_7/tflite) | MobileBert            | Language Understanding          | NA                           | 96                | 25*                       | [[9]](https://arxiv.org/abs/2004.02984) |
 
 *: 25 FPS is borrowed from the setting for ResNet8 as this information is missing in the paper reference.
 
@@ -100,13 +100,13 @@ A summary of the hardware settings for these chips is provided in the following 
 
 | source                                                      | label | B<sub>i</sub>/B<sub>o</sub>/B<sub>cycle</sub> | macro size     | #cell_group | nb_of_macros |
 |-------------------------------------------------------------|-------|-----------------------------------------------|----------------|-------------|--------------|
-| [1](https://ieeexplore.ieee.org/abstract/document/9431575)  | AIMC1 | 7 / 2 / 7                                     | 1024&times;512 | 1           | 1            |
-| [2](https://ieeexplore.ieee.org/abstract/document/9896828)  | AIMC2 | 8 / 8 / 2                                     | 16&times;12    | 32          | 1            |
-| [3](https://ieeexplore.ieee.org/abstract/document/10067289) | AIMC3 | 8 / 8 / 1                                     | 64&times;256   | 1           | 8            |
-| [4](https://ieeexplore.ieee.org/abstract/document/9731762)  | DIMC1 | 8 / 8 / 2                                     | 32&times;6     | 1           | 64           |
-| [5](https://ieeexplore.ieee.org/abstract/document/9731545)  | DIMC2 | 8 / 8 / 1                                     | 32&times;1     | 16          | 2            |
-| [6](https://ieeexplore.ieee.org/abstract/document/10067260) | DIMC3 | 8 / 8 / 2                                     | 128&times;8    | 8           | 8            |
-| [7](https://ieeexplore.ieee.org/abstract/document/10067779) | DIMC4 | 8 / 8 / 1                                     | 128&times;8    | 2           | 4            |
+| [[1]](https://ieeexplore.ieee.org/abstract/document/9431575)  | AIMC1 | 7 / 2 / 7                                     | 1024&times;512 | 1           | 1            |
+| [[2]](https://ieeexplore.ieee.org/abstract/document/9896828)  | AIMC2 | 8 / 8 / 2                                     | 16&times;12    | 32          | 1            |
+| [[3]](https://ieeexplore.ieee.org/abstract/document/10067289) | AIMC3 | 8 / 8 / 1                                     | 64&times;256   | 1           | 8            |
+| [[4]](https://ieeexplore.ieee.org/abstract/document/9731762)  | DIMC1 | 8 / 8 / 2                                     | 32&times;6     | 1           | 64           |
+| [[5]](https://ieeexplore.ieee.org/abstract/document/9731545)  | DIMC2 | 8 / 8 / 1                                     | 32&times;1     | 16          | 2            |
+| [[6]](https://ieeexplore.ieee.org/abstract/document/10067260) | DIMC3 | 8 / 8 / 2                                     | 128&times;8    | 8           | 8            |
+| [[7]](https://ieeexplore.ieee.org/abstract/document/10067779) | DIMC4 | 8 / 8 / 1                                     | 128&times;8    | 2           | 4            |
 
 B<sub>i</sub>/B<sub>o</sub>/B<sub>cycle</sub>: input precision/weight precision/number of bits processed per cycle per input.
 #cell_group: the number of cells sharing one entry to computation logic.
