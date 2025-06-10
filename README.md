@@ -136,15 +136,11 @@ The carbon model is developed based upon [ACT](https://dl.acm.org/doi/abs/10.114
 
 For Continuous-Active (CA) scenario:
 
-$
-Carbon/operation = \frac{k_1}{TOP/s/W} + \frac{k_2}{TOP/s/mm^2} + package cost
-$
+$Carbon/operation = \frac{k_1}{TOP/s/W} + \frac{k_2}{TOP/s/mm^2} + package\ cost$
 
 For Periodic-Active (PA) scenario:
 
-$
-Carbon/operation = \frac{k_1}{TOP/s/W} + \frac{k_2 \cdot T_{c} \cdot TOP/s}{TOP/s/mm^2 \cdot parallelism} + package cost
-$
+$Carbon/operation = \frac{k_1}{TOP/s/W} + \frac{k_2 \cdot T_{c} \cdot TOP/s}{TOP/s/mm^2 \cdot parallelism} + package\ cost$
 
 where, $k_1$ is the operational carbon intensity ($\frac{301}{3.6E+18}\ g, CO_2/pJ$ in globe average).
 $k_2$ is the embodied carbon intensity ($8.709 \cdot \frac{1}{Yield \cdot lifetime(year)}\ g, CO_2/mm^2/ps$).
