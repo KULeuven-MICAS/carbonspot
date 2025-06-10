@@ -31,14 +31,14 @@ If you find this table useful to your work, please consider cite our paper in yo
 
 | Workload Suite                                                         | Network Name | Usecase                     | Targetd Dataset           | Workload Size (MB) | Frame/Second Requirement | Paper Reference |
 |------------------------------------------------------------------------|--------------|-----------------------------|---------------------------|--------------------|--------------------------|-----------------|
-| [MLPerf-Tiny](https://github.com/mlcommons/tiny/tree/master/benchmark) | DS-CNN       | Keyword Spotting            | Speech Commands           | 0.06               | 10                       | [paper](https://arxiv.org/abs/1804.03209) |
-| [MLPerf-Tiny](https://github.com/mlcommons/tiny/tree/master/benchmark) | MobileNet-V1 | Visual Wake Words           | Visual Wake Words Dataset | 0.9                | 0.75                     | [paper](https://arxiv.org/abs/1906.05721) |
-| [MLPerf-Tiny](https://github.com/mlcommons/tiny/tree/master/benchmark) | ResNet8      | Binary Image Classification | Cifar10                   | 0.3                | 25                       | [paper1](https://www.cs.utoronto.ca/~kriz/learning-features-2009-TR.pdf), [paper2](https://openaccess.thecvf.com/content_CVPR_2020/papers/Chen_Cross-View_Tracking_for_Multi-Human_3D_Pose_Estimation_at_Over_100_CVPR_2020_paper.pdf) |
-| [MLPerf-Tiny](https://github.com/mlcommons/tiny/tree/master/benchmark) | AutoEncoder  | Anamaly Detection           | ToyADMOS                  | 1.0                | 1                        | [paper](https://arxiv.org/abs/1909.09347) |
-| [MLPerf-Mobile](https://github.com/mlcommons/mobile_models/tree/main/v0_7/tflite) | MobileNetV3           | Image Classification            | ImageNet                     | 15.6              | 25*                       | [paper](https://openaccess.thecvf.com/content_ICCV_2019/papers/Howard_Searching_for_MobileNetV3_ICCV_2019_paper.pdf) |
-| [MLPerf-Mobile](https://github.com/mlcommons/mobile_models/tree/main/v0_7/tflite) | SSD MobileNetV2       | Object Classification           | COCO                         | 64.4              | 25*                       | [paper](https://vidishmehta204.medium.com/object-detection-using-ssd-mobilenet-v2-7ff3543d738d) |
-| [MLPerf-Mobile](https://github.com/mlcommons/mobile_models/tree/main/v0_7/tflite) | DeepLab MobileNetV2   | Semantic Segmentation           | ImageNet ADE20K Training Set | 8.7               | 25*                       | [paper](https://openaccess.thecvf.com/content_cvpr_2018/papers/Sandler_MobileNetV2_Inverted_Residuals_CVPR_2018_paper.pdf) |
-| [MLPerf-Mobile](https://github.com/mlcommons/mobile_models/tree/main/v0_7/tflite) | MobileBert            | Language Understanding          | NA                           | 96                | 25*                       | [paper](https://arxiv.org/abs/2004.02984) |
+| [MLPerf-Tiny](https://github.com/mlcommons/tiny/tree/master/benchmark) | DS-CNN       | Keyword Spotting            | Speech Commands           | 0.06               | 10                       | [1](https://arxiv.org/abs/1804.03209) |
+| [MLPerf-Tiny](https://github.com/mlcommons/tiny/tree/master/benchmark) | MobileNet-V1 | Visual Wake Words           | Visual Wake Words Dataset | 0.9                | 0.75                     | [2](https://arxiv.org/abs/1906.05721) |
+| [MLPerf-Tiny](https://github.com/mlcommons/tiny/tree/master/benchmark) | ResNet8      | Binary Image Classification | Cifar10                   | 0.3                | 25                       | [3](https://www.cs.utoronto.ca/~kriz/learning-features-2009-TR.pdf), [4](https://openaccess.thecvf.com/content_CVPR_2020/papers/Chen_Cross-View_Tracking_for_Multi-Human_3D_Pose_Estimation_at_Over_100_CVPR_2020_paper.pdf) |
+| [MLPerf-Tiny](https://github.com/mlcommons/tiny/tree/master/benchmark) | AutoEncoder  | Anamaly Detection           | ToyADMOS                  | 1.0                | 1                        | [5](https://arxiv.org/abs/1909.09347) |
+| [MLPerf-Mobile](https://github.com/mlcommons/mobile_models/tree/main/v0_7/tflite) | MobileNetV3           | Image Classification            | ImageNet                     | 15.6              | 25*                       | [6](https://openaccess.thecvf.com/content_ICCV_2019/papers/Howard_Searching_for_MobileNetV3_ICCV_2019_paper.pdf) |
+| [MLPerf-Mobile](https://github.com/mlcommons/mobile_models/tree/main/v0_7/tflite) | SSD MobileNetV2       | Object Classification           | COCO                         | 64.4              | 25*                       | [7](https://vidishmehta204.medium.com/object-detection-using-ssd-mobilenet-v2-7ff3543d738d) |
+| [MLPerf-Mobile](https://github.com/mlcommons/mobile_models/tree/main/v0_7/tflite) | DeepLab MobileNetV2   | Semantic Segmentation           | ImageNet ADE20K Training Set | 8.7               | 25*                       | [8](https://openaccess.thecvf.com/content_cvpr_2018/papers/Sandler_MobileNetV2_Inverted_Residuals_CVPR_2018_paper.pdf) |
+| [MLPerf-Mobile](https://github.com/mlcommons/mobile_models/tree/main/v0_7/tflite) | MobileBert            | Language Understanding          | NA                           | 96                | 25*                       | [9](https://arxiv.org/abs/2004.02984) |
 
 *: 25 FPS is borrowed from the setting for ResNet8 as this information is missing in the paper reference.
 
@@ -55,11 +55,11 @@ The main script is `expr.py`, which can:
 
 The function `experiment_1_literature_trend()` can output the equivalent carbon footprint of chips reported in prior works. Following graphs can be generated.
 
-Due to the page limitation, the paper citations are listed below instead of in the CarbonSpot paper.
-
 <p align="center">
 <img src="https://github.com/KULeuven-MICAS/carbonspot/blob/master/literature_carbon.png" width="100%" alt="Carbon cost (y axis) versus energy efficiency (x axis) of AI accelerators from the literature in 16-28 nm CMOS technology when applied on the (a) MLPerf-Tiny and (b) MLPerf-Mobile benchmarks. The pie charts show the carbon breakdown into operational (green) and embodied (red) carbon costs for each design. TOP/s/W has been normalized to INT8. The most performant and most carbon-efficient designs are circles out.">
 </p>
+
+Due to the page limitation, please forgive us not listing the paper citations not in the paper. are listed below instead of in the CarbonSpot paper.
 
 [1] [Chih, Yu-Der, et al. "16.4 An 89TOPS/W and 16.3 TOPS/mm 2 all-digital SRAM-based full-precision compute-in memory macro in 22nm for machine-learning edge applications." 2021 IEEE International Solid-State Circuits Conference (ISSCC). Vol. 64. IEEE, 2021.](https://ieeexplore.ieee.org/abstract/document/9365766)
 
