@@ -21,7 +21,7 @@ If you find this repository useful to your work, please consider cite our paper 
 The size of current AI models is increasing drastically in recent years together with model accuracy and capability. We plotted this trend in the figure below (data is collected from [here](https://paperswithcode.com/sota/image-classification-on-imagenet)). At the same time, this demands powerful hardware and significant energy consumption, bringing our community attention to evaluate the environmental impacts -- or more specific, the equivalent carbon footprint.
 
 <p align="center">
-    <img src="https://github.com/KULeuven-MICAS/carbonspot/blob/master/model_size_trends.png" width="100%" alt="The trend of increasing model size and accuracy">
+    <img src="https://github.com/KULeuven-MICAS/carbonspot/blob/master/model_size_trends.png" width="80%" alt="The trend of increasing model size and accuracy">
 </p>
 
 ## Framework Capability
@@ -100,7 +100,7 @@ Follwing papers are used to generate the data points in the figure. Due to the p
 The function `zigzag_similation_and_result_storage()` simulates and evalutes the performance and carbon footprint for given architectures. An example demonstration is shown below.
 
 <p align="center">
-    <img src="https://github.com/KULeuven-MICAS/carbonspot/blob/master/carbon_example.png" width="100%" alt="An example demonstration of CarbonSpot output">
+    <img src="https://github.com/KULeuven-MICAS/carbonspot/blob/master/carbon_example.png" width="80%" alt="An example demonstration of CarbonSpot output">
 </p>
 <p align="center"><b>Figure 2:</b> An example demonstration of CarbonSpot output. The figures show the carbon footprint under PA scenario (y axis) and CA scenario (x axis) across different architecture solutions. Different colors mean different SRAM size. (enable <b>active_plot=True</b> to see which point corresponds to what architecture solution.) </p>
 
