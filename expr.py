@@ -324,8 +324,15 @@ def plot_carbon_footprint_in_literature(data, period=4e+3, op_per_task=1):
     plt.show()
 
 def plot_curve(i_df, acc_types, workload, sram_size=256*1024, d1_equal_d2=True):
-    # This function is to plot topsw, tops, topsmm2, carbon footprint in curve, for both AIMC and DIMC, under
-    # a fixed workload and sram size.
+    """
+    This function is to plot topsw, tops, topsmm2, carbon footprint in curve, for both AIMC and DIMC, under
+    a fixed workload and sram size.
+    @para i_df: input dataframe, which contains the performance data.
+    @para acc_types: list of accelerator types, e.g., [AIMC, DIMC, pdigital_ws, pdigital_os]
+    @para workload: the workload to plot, e.g., "geo"
+    @para sram_size: the sram size to plot, e.g., 256*1024 (default)
+    @para d1_equal_d2: whether to use d1 equal to d2, default is True. If False, d1 will be set to d2 // 8
+    """
     colors = [u'#ff7f0e', u'#2ca02c', u'#d62728', u'#9467bd', u'#8c564b', u'#e377c2', u'#7f7f7f', u'#bcbd22',
               u'#17becf']
     markers = ["s", "o", "^", "p"]
@@ -395,7 +402,15 @@ def plot_curve(i_df, acc_types, workload, sram_size=256*1024, d1_equal_d2=True):
     plt.show()
 
 def calc_carbon_footprint_for_complex_task(raw_data, acc_type, workload, sram_size, complexity):
-    # function to calculate carbon for complex tasks under the fixed-work scenario
+    """
+    This function is not used in the CarbonSpot paper.
+    Function to calculate carbon for complex tasks under the fixed-work scenario
+    @para raw_data: the raw data containing performance data and carbon footprint data
+    @para acc_type: the accelerator type, e.g., "AIMC", "DIMC"
+    @para workload: the workload to calculate carbon footprint for, e.g., "geo"
+    @para sram_size: the sram size to calculate carbon footprint for, e.g., 256*1024
+    @para complexity: the complexity level of the task, e.g., 10
+    """
     def calc_carbon_footprint_for_complex_task_per_workload(raw_data, acc_type, workload, sram_size, complexity):
         assert workload not in ["peak", "geo"], f"Workload {workload} is not supported."
         assert complexity >= 1, f"Complexity [{complexity}] < 1 is not permitted."
@@ -452,13 +467,16 @@ def calc_carbon_footprint_for_complex_task(raw_data, acc_type, workload, sram_si
     return cf_fw_complex
 
 def plot_total_carbon_curve_four_cases(i_df, acc_types, workload, sram_size, complexity=50, raw_data={}, plot_breakdown=False, d1_equal_d2=True):
-    # This function is to plot total carbon cost (in curve) for pdigital, aimc and dimc, under 4 cases:
-    # (1) fixed-time, simple task
-    # (2) fixed-work, simple task
-    # (3) fixed-time, complex task with 10x (default) more complexity than case (1)
-    # (4) fixed-work, complex task with 10x (default) complexity than case (2)
-    # The output figure consists of 4 subplots (x-axis: area, y-axis: carbon/inference), corresponding to the cases above.
-    # @para sram_size: value [x axis is dim size]; list [x axis is sram size].
+    """
+    This function is not used in the CarbonSpot paper.
+    This function is to plot total carbon cost (in curve) for pdigital, aimc and dimc, under 4 cases:
+    (1) fixed-time (continuous-active (CA) scenario), simple task
+    (2) fixed-work (periodic-active (PA) scenario), simple task
+    (3) fixed-time, complex task with 10x (default) more complexity than case (1)
+    (4) fixed-work, complex task with 10x (default) complexity than case (2)
+    The output figure consists of 4 subplots (x-axis: area, y-axis: carbon/inference), corresponding to the cases above.
+    @para sram_size: value [x axis is dim size]; list [x axis is sram size].
+    """
 
     # colors = [u'#1f77b4', u'#ff7f0e', u'#2ca02c', u'#d62728', u'#9467bd', u'#8c564b', u'#e377c2', u'#7f7f7f',
     #           u'#bcbd22', u'#17becf']
@@ -619,11 +637,14 @@ def plot_total_carbon_curve_four_cases(i_df, acc_types, workload, sram_size, com
     plt.show()
 
 def plot_performance_bar(i_df, acc_types: list, workload: str, sram_size=256*1024, d1_equal_d2=True, breakdown=True):
-    # This function is to plot performance for pdigital_os, pdigital_ws, aimc and dimc, under fixed sram size.
-    # @para sram_size: value [x axis is D1xD2]; list [x axis is sram size]
-    # @para d1_equal_d2: True [D1=D2=dim]; False [D1=dim//8, D2=dim]
-    # @para breakdown: True [show cost breakdown for PE (colored bar) and memories (white bar)]; False [only show total cost]
-
+    """
+    This function is not used in the CarbonSpot paper.
+    This function is to plot performance for pdigital_os, pdigital_ws, aimc and dimc, under fixed sram size.
+    @para sram_size: value [x axis is D1xD2]; list [x axis is sram size]
+    @para d1_equal_d2: True [D1=D2=dim]; False [D1=dim//8, D2=dim]
+    @para breakdown: True [show cost breakdown for PE (colored bar) and memories (white bar)]; False [only show total cost]
+    """
+    
     assert workload != "peak", "Plotting for peak is not supported so far."
 
     colors = [u'#1f77b4', u'#ff7f0e', u'#2ca02c', u'#d62728', u'#9467bd', u'#8c564b', u'#e377c2', u'#7f7f7f',
@@ -770,10 +791,12 @@ def plot_performance_bar(i_df, acc_types: list, workload: str, sram_size=256*102
     plt.show()
 
 def plot_carbon_breakdown_in_curve(i_df, acc_types, workload, sram_size=256*1024, d1_equal_d2=True):
-    # This function is to plot carbon cost breakdown (in curve) for pdigital, aimc and dimc, under fixed workload and fixed sram size.
-    # The output figure consists of 2 subplots (x-axis: area):
-    # 1th (left): carbon footprint breakdown (fixed-time)
-    # 2th (right): carbon footprint breakdown (fixed-work)
+    """
+    This function is to plot carbon cost breakdown (in curve) for pdigital, aimc and dimc, under fixed workload and fixed sram size.
+    The output figure consists of 2 subplots (x-axis: area):
+    1th (left): carbon footprint breakdown (fixed-time)
+    2th (right): carbon footprint breakdown (fixed-work)
+    """
 
     assert workload != "geo", "geo does not have carbon breakdown, so the breakdown plots cannot be generated."
 
@@ -913,10 +936,12 @@ def plot_carbon_breakdown_in_curve(i_df, acc_types, workload, sram_size=256*1024
 
 def scatter_performance(acc_types, sram_sizes, workload,
                                    raw_data={}, d1_equal_d2=True, active_plot=True):
-    # This function is to plot carbon cost in entire exploration space in a scatter plot.
-    # The output figure consists of 4 subplots (x-axis: area):
-    # 1th (left): carbon footprint breakdown (fixed-time)
-    # 2th (right): carbon footprint breakdown (fixed-work)
+    """
+    This function is to plot carbon cost in entire exploration space in a scatter plot.
+    The output figure consists of 4 subplots (x-axis: area):
+    1th (left): carbon footprint breakdown (fixed-time)
+    2th (right): carbon footprint breakdown (fixed-work)
+    """
     colors = [u'#1f77b4', u'#ff7f0e', u'#2ca02c', u'#d62728', u'#9467bd', u'#8c564b', u'#e377c2', u'#7f7f7f',
               u'#bcbd22', u'#17becf']
     markers = ["s", "o", "^", "p", "D", "P"]
@@ -1015,10 +1040,12 @@ def scatter_performance(acc_types, sram_sizes, workload,
 
 def scatter_carbon_cost_four_cases(acc_types, sram_sizes, workload, complexity=50,
                                    raw_data={}, d1_equal_d2=True, active_plot=True):
-    # This function is to plot carbon cost in entire exploration space in a scatter plot.
-    # The output figure consists of 4 subplots (x-axis: area):
-    # 1th (left): carbon footprint breakdown (fixed-time)
-    # 2th (right): carbon footprint breakdown (fixed-work)
+    """
+    This function is to plot carbon cost in entire exploration space in a scatter plot.
+    The output figure consists of 4 subplots (x-axis: area):
+    1th (left): carbon footprint breakdown (fixed-time)
+    2th (right): carbon footprint breakdown (fixed-work)
+    """
     colors = [u'#1f77b4', u'#ff7f0e', u'#2ca02c', u'#d62728', u'#9467bd', u'#8c564b', u'#e377c2', u'#7f7f7f',
               u'#bcbd22', u'#17becf']
     markers = ["s", "o", "^", "p"]
@@ -1169,12 +1196,14 @@ def scatter_carbon_cost_four_cases(acc_types, sram_sizes, workload, complexity=5
         plt.show()
 
 def memory_hierarchy_dut_for_pdigital_os(parray, visualize=False, sram_size=256*1024, dram_size=1 * 1024 * 1024, dram_ac_cost_per_bit=3.7):
-    # This function defines the memory hierarchy in the hardware template.
-    # @para parray: digital pe array object
-    # @para visualize: whether illustrate teh memory hierarchy
-    # @para sram_size: define the on-chip sram size, unit: byte
-    # @para dram_size: define the off-chip dram size, unit: byte
-    # @para dram_ac_cost_per_bit: dram access cost per bit, unit: pJ
+    """
+    This function defines the memory hierarchy in the hardware template.
+    @para parray: digital pe array object
+    @para visualize: whether illustrate teh memory hierarchy
+    @para sram_size: define the on-chip sram size, unit: byte
+    @para dram_size: define the off-chip dram size, unit: byte
+    @para dram_ac_cost_per_bit: dram access cost per bit, unit: pJ
+    """
     """ [OPTIONAL] Get w_cost of imc cell group from CACTI if required """
     cacti_path = "zigzag/classes/cacti/cacti_master"
 
@@ -1335,13 +1364,15 @@ def memory_hierarchy_dut_for_pdigital_os(parray, visualize=False, sram_size=256*
 
 def memory_hierarchy_dut_for_pdigital_ws(parray, visualize=False, sram_size=256*1024, dram_size=1 * 1024 * 1024,
                                          dram_ac_cost_per_bit=3.7, enable_weight_dram_removal=False):
-    # This function defines the memory hierarchy in the hardware template.
-    # @para parray: digital pe array object
-    # @para visualize: whether illustrate teh memory hierarchy
-    # @para sram_size: define the on-chip sram size, unit: byte
-    # @para dram_size: define the off-chip dram size, unit: byte
-    # @para dram_ac_cost_per_bit: dram access cost per bit, unit: pJ
-    # @para enable_weight_dram_removal: if remove dram level for weight and put weight also in on-chip SRAM.
+    """
+    This function defines the memory hierarchy in the hardware template.
+    @para parray: digital pe array object
+    @para visualize: whether illustrate teh memory hierarchy
+    @para sram_size: define the on-chip sram size, unit: byte
+    @para dram_size: define the off-chip dram size, unit: byte
+    @para dram_ac_cost_per_bit: dram access cost per bit, unit: pJ
+    @para enable_weight_dram_removal: if remove dram level for weight and put weight also in on-chip SRAM.
+    """
     """ [OPTIONAL] Get w_cost of imc cell group from CACTI if required """
     cacti_path = "zigzag/classes/cacti/cacti_master"
 
@@ -1525,13 +1556,15 @@ def memory_hierarchy_dut_for_pdigital_ws(parray, visualize=False, sram_size=256*
 
 def memory_hierarchy_dut_for_imc(imc_array, visualize=False, sram_size=256*1024, dram_size=1 * 1024 * 1024,
                                  dram_ac_cost_per_bit=3.7, enable_weight_dram_removal=False):
-    # This function defines the memory hierarchy in the hardware template.
-    # @para imc_array: imc pe array object
-    # @para visualize: whether illustrate teh memory hierarchy
-    # @para sram_size: define the on-chip sram size, unit: byte
-    # @para dram_size: define the off-chip dram size, unit: byte
-    # @para dram_ac_cost_per_bit: dram access cost per bit, unit: pJ
-    # @para enable_weight_dram_removal: if remove dram level for weight and put weight also in on-chip SRAM.
+    """
+    This function defines the memory hierarchy in the hardware template.
+    @para imc_array: imc pe array object
+    @para visualize: whether illustrate teh memory hierarchy
+    @para sram_size: define the on-chip sram size, unit: byte
+    @para dram_size: define the off-chip dram size, unit: byte
+    @para dram_ac_cost_per_bit: dram access cost per bit, unit: pJ
+    @para enable_weight_dram_removal: if remove dram level for weight and put weight also in on-chip SRAM.
+    """
     """ [OPTIONAL] Get w_cost of imc cell group from CACTI if required """
     cacti_path = "zigzag/classes/cacti/cacti_master"
     tech_param = imc_array.unit.logic_unit.tech_param
@@ -1722,8 +1755,11 @@ def memory_hierarchy_dut_for_imc(imc_array, visualize=False, sram_size=256*1024,
 
 def get_accelerator(acc_type, tech_param, hd_param, dims, sram_size=256*1024, dram_size_GB=1/1024, workload="resnet8",
                     dram_ac_cost_per_bit=3.7, workload_size=1e9,):
-    # @para dram_size: dram size (unit: GB)
-    # @para layer_size: workload size for weight. Unit: Byte
+    """
+    This function defines the accelerator in the hardware template.
+    @para dram_size: dram size (unit: GB)
+    @para layer_size: workload size for weight. Unit: Byte
+    """
     assert acc_type in ["pdigital_ws", "pdigital_os", "AIMC", "DIMC"], f"acc_type {acc_type} not in [pdigital_ws, pdigital_os, AIMC, DIMC]"
     dram_size = int(math.ceil(dram_size_GB * 1024 * 1024 * 1024))  # unit: B
     # check if dram level for weight should be removed
@@ -1755,10 +1791,13 @@ def get_accelerator(acc_type, tech_param, hd_param, dims, sram_size=256*1024, dr
     return accelerator, pe_area_total
 
 def get_imc_param_setting(acc_type="DIMC", D1=32, D2=32, D3=1):
-    ## type: pdigital, DIMC or AIMC
-    # D1: int, can divide with 8
-    # D2: int
-    # D3: int
+    """
+    This function defines the IMC parameter setting.
+    acc type: pdigital_ws, pdigital_os, DIMC or AIMC
+    D1: int, can divide with 8
+    D2: int
+    D3: int
+    """
     assert acc_type in ["pdigital_ws", "pdigital_os", "AIMC", "DIMC"], f"acc_type {acc_type} not in [pdigital_ws, pdigital_os, AIMC, DIMC]"
 
     ##################
@@ -1822,12 +1861,15 @@ def get_imc_param_setting(acc_type="DIMC", D1=32, D2=32, D3=1):
     return tech_param_28nm, hd_param, dimensions
 
 def digital_array(acc_type, dims):
-    # Data is from envision paper (https://ieeexplore.ieee.org/abstract/document/7870353)
-    # Tech: 28nm UTBB FD-SOI
-    # PE array area is estimated from the chip picture, with total size: 0.75mm x 1.29mm for 16 x 16 int16 PEs
-    # TOP/s/w: 2
-    # Supply voltage: 1 V
-    # Clock freq: 200 MHz
+    """
+    This function defines the digital array in the hardware template.
+    Data is from envision paper (https://ieeexplore.ieee.org/abstract/document/7870353)
+    Tech: 28nm UTBB FD-SOI
+    PE array area is estimated from the chip picture, with total size: 0.75mm x 1.29mm for 16 x 16 int16 PEs
+    TOP/s/w: 2
+    Supply voltage: 1 V
+    Clock freq: 200 MHz
+    """
     multiplier_input_precision = [8, 8]
     multiplier_energy = 0.25  # unit: pJ/mac
     multiplier_area = 0.75*1.29/256/4  # mm2/PE
@@ -1853,6 +1895,11 @@ def digital_array(acc_type, dims):
     return multiplier_array, multiplier_energy, area_total
 
 def adder_tree_delay(dims, adder_output_pres):
+    """
+    This function calculates the adder tree delay.
+    @para dims: dimensions of the adder tree, e.g., {"D1": 32, "D2": 32, "D3": 1}
+    @para adder_output_pres: output precision of the adder, e.g., 8
+    """
     nd2_dly = 0.0478  # unit: ns
     xor2_dly = 0.0478 * 2.4  # unit: ns
     nb_inputs_of_adder = dims["D2"]
@@ -1866,22 +1913,24 @@ def adder_tree_delay(dims, adder_output_pres):
     return dly_adders
 
 def calc_cf(energy, lat, area, nb_of_ops, lifetime=3, chip_yield=0.95, fixed_work_period=4e+6, dram_size=1/1024, dram_cost_removal=False):  # 4 ms by default
+    """
     #######################################################
-    # This function is to calculate g, CO2 per operation for two scenarios: fixed-time and fixed-work.
-    # Fixed-time scenario: assuming the design is fully activated during the entire lifetime.
-    # Fixed-work scenario: assuming the design is only activated one time within a fixed period time.
-    # Used model: ACT
-    # Ref: Gupta, Udit, et al. "ACT: Designing sustainable computer systems with an architectural carbon modeling tool." Proceedings of the 49th Annual International Symposium on Computer Architecture. 2022.
-    # NOTE: If setting nb_of_ops = 1, the result will correspond to g, CO2/TASK!
-    # @para energy: energy cost, unit: pJ
-    # @para lat: latency cost, unit: ns
-    # @para area: area cost, unit: mm^2
-    # @para nb_of_ops: number of operations
-    # @para lifetime: lifetime of entire chip, unit: year
-    # @para chip_yield: chip fabrication yield, range: float within (0, 1]
-    # @para fixed_work_period: the period length for fixed-work scenario, unit: ns
-    # @para dram_size: utilized dram size. Unit: GB. Default: 1MB for all four tinyml perf workloads (ceiled from 571680 B, assuming 8b/weight)
+    This function is to calculate g, CO2 per operation for two scenarios: fixed-time (CA scenario) and fixed-work (PA scenario).
+    Fixed-time scenario: assuming the design is fully activated during the entire lifetime.
+    Fixed-work scenario: assuming the design is only activated one time within a fixed period time.
+    Used model: ACT
+    Ref: Gupta, Udit, et al. "ACT: Designing sustainable computer systems with an architectural carbon modeling tool." Proceedings of the 49th Annual International Symposium on Computer Architecture. 2022.
+    NOTE: If setting nb_of_ops = 1, the result will correspond to g, CO2/TASK!
+    @para energy: energy cost, unit: pJ
+    @para lat: latency cost, unit: ns
+    @para area: area cost, unit: mm^2
+    @para nb_of_ops: number of operations
+    @para lifetime: lifetime of entire chip, unit: year
+    @para chip_yield: chip fabrication yield, range: float within (0, 1]
+    @para fixed_work_period: the period length for fixed-work scenario, unit: ns
+    @para dram_size: utilized dram size. Unit: GB. Default: 1MB for all four tinyml perf workloads (ceiled from 571680 B, assuming 8b/weight)
     #######################################################
+    """
     assert 0 < chip_yield <= 1, f"yield {chip_yield} is not in range (0,1]"
     #################
     ## para calc (specific for 28 nm)
@@ -1984,8 +2033,10 @@ def calc_cf(energy, lat, area, nb_of_ops, lifetime=3, chip_yield=0.95, fixed_wor
     return CF_PER_OP_fixed_time, tt_cf_bd_fixed_time, CF_PER_OP_fixed_work, tt_cf_bd_fixed_work, CF_PER_OP_fixed_time_ex_pkg,CF_PER_OP_fixed_work_ex_pkg
 
 def plot_area_trend_in_literature(data):
-    # This function is to check if the area versus years follows an ascending order.
-    # TODO: scale area to tech node 28nm
+    """
+    This function is to check if the area versus years follows an ascending order.
+    """
+    # scale area to tech node 28nm
     areas_input = data[:, 10].tolist()  # die area
     techs = data[:, 3].astype(int).tolist()
     netsizes = data[:, 11].tolist()  # unit: B
@@ -2064,8 +2115,6 @@ def plot_area_trend_in_literature(data):
         else:
             ax.text(x, y, f"{txt}", ha="center", fontsize=12)
 
-
-
     # Figure configuration
     plt.xticks(fontsize=18)
     plt.yticks(fontsize=18)
@@ -2078,26 +2127,33 @@ def plot_area_trend_in_literature(data):
     plt.show()
 
 def cacti_sanity_check(sram_size, d):
+    """
+    This function checks if the current sram size is supported by cacti.
+    @para sram_size: int, unit: B
+    @para d: int, dimension size, e.g., 32
+    """
     row_counts_in_sram = sram_size / (2 * d)  # sram_size * precision / partial_output_precision
     if row_counts_in_sram < 32:
         return False
     else:
         return True
 
-def zigzag_similation_and_result_storage(workloads: list, acc_types: list, sram_sizes: list, Dimensions: list, periods: dict,
+def zigzag_simulation_and_result_storage(workloads: list, acc_types: list, sram_sizes: list, Dimensions: list, periods: dict,
                                          pkl_name: str, dram_size: float, dram_ac_cost_per_bit: float,
                                          possible_dram_energy_removal: bool, size_workloads: dict, d1_equal_d2: bool,
                                          workload_suit: str):
-    # Run zigzag simulation for peak and tinyml workloads.
-    # workloads: peak, ds_cnn, ae, mobilenet, resnet8
-    # acc_types: AIMC, DIMC, pdigital_ws, pdigital_os
-    # sram_sizes: int
-    # Dimensions: int
-    # periods: float
-    # @para dram_size: utilized dram size
-    # @para dram_ac_cost_per_bit: dram access cost per bit (unit: pJ)
-    # @para possible_dram_energy_removal: remove dram energy cost if on-chip weight regs size > workload size
-    # @para d1_equal_d2: Ture: D1=D2, False: D1=D2/8
+    """
+    Run CarbonSpot/zigzag simulation for peak and tinyml workloads.
+    workloads: such as: peak, ds_cnn, ae, mobilenet, resnet8
+    acc_types: AIMC, DIMC, pdigital_ws, pdigital_os
+    sram_sizes: int
+    Dimensions: int
+    periods: float
+    @para dram_size: utilized dram size
+    @para dram_ac_cost_per_bit: dram access cost per bit (unit: pJ)
+    @para possible_dram_energy_removal: remove dram energy cost if on-chip weight regs size > workload size
+    @para d1_equal_d2: Ture: D1=D2, False: D1=D2/8
+    """
     trig_time = time.time()
     data_vals = []
     if workload_suit in ["tiny", "mobile"]:
@@ -2589,7 +2645,7 @@ if __name__ == "__main__":
             else:  # left for debug mode
                 assert Exception(f"Illegal workload suit: {workload_suit} (not tiny or mobile)")
 
-            zigzag_similation_and_result_storage(workloads=workloads, acc_types=acc_types, sram_sizes=sram_sizes,
+            zigzag_simulation_and_result_storage(workloads=workloads, acc_types=acc_types, sram_sizes=sram_sizes,
                                                  Dimensions=Dimensions, periods=periods, pkl_name=pkl_name,
                                                  dram_size=dram_size, dram_ac_cost_per_bit=dram_ac_cost_per_bit,
                                                  possible_dram_energy_removal=possible_dram_energy_removal,
