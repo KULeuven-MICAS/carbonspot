@@ -20,7 +20,7 @@ If you find this repository useful to your work, please consider cite our paper 
 
 CarbonSpot is capabile of:
 
-- Figuring out the optimal mapping for a user-defined accelerator architectures.
+- Figuring out the optimal mapping for a user-defined accelerator architectures, including digital TPU-like architecture, analog In-Memory-Computing architecture and digital In-Memory-Computing architecture.
 - Reporting the energy, latency and carbon footprint for a given architecture and workload.
 - Evaluating the carbon footprint under Continuous-Active (CA) scenario and Periodically-Active (PA) scenario.
 - Reporting the cost breakdown for energy, latency and carbon footprint.
@@ -42,13 +42,12 @@ If you find this table useful to your work, please consider cite our paper in yo
 
 *: 25 FPS is borrowed from the setting for ResNet8 as this information is missing in the paper reference.
 
-## Prerequisite
+## Getting Started
 
 To get started, you can install all packages directly through pip using the pip-requirements.txt with the command:
 
 `$ pip install -r requirements.txt`
 
-## Getting Started
 The main script is `expr.py`, which can:
 
 ### Evaluate the carbon footprint of prior works in literature
@@ -87,41 +86,37 @@ Due to the page limitation, please forgive us not listing the paper citations no
 
 [13] [Song, Jiahao, et al. "A 28 nm 16 kb bit-scalable charge-domain transpose 6T SRAM in-memory computing macro." IEEE Transactions on Circuits and Systems I: Regular Papers 70.5 (2023): 1835-1845.](https://ieeexplore.ieee.org/abstract/document/10044587)
 
-list the literature references
-
 ### Simulate and estimate the performance and carbon footprint of user-defined accelerators
 
-xxx
+The function `zigzag_similation_and_result_storage()` simulates and evalutes the performance and carbon footprint for given architectures.
 
 
-## In-Memory Computing AI Accelerator Cost Model Description
-Our SRAM-based In-Memory Computing model is a versatile, parameterized model designed to cater to both Analog IMC and Digital IMC.
-Since hardware costs are technology-node dependent, we have performed special calibration for the 28nm technology node. The model has been validated against 7 chips from the literature. 
+## Performance Model Description
+
+Note in the CarbonSpot paper, we only show the simulation results on digital TPU-like architecture and digital In-Memory-Computing architectures. In fact, the framework supports all propagation-based digital architectuers with any random data stationarity dataflow, and analog In-Memory-Computing architectures.
+
+Our SRAM-based In-Memory-Computing performance model is borrowed from [ZigZag-IMC](https://github.com/KULeuven-MICAS/zigzag-imc), which supports both analog (AIMC) and digital (DIMC) In-Memory-Computing architectures.
 A summary of the hardware settings for these chips is provided in the following table.
 
-| source                                                          | label | B<sub>i</sub>/B<sub>o</sub>/B<sub>cycle</sub> | macro size     | #cell_group | nb_of_macros |
-|-----------------------------------------------------------------|-------|-----------------------------------------------|----------------|-------------|--------------|
-| [paper](https://ieeexplore.ieee.org/abstract/document/9431575)  | AIMC1 | 7 / 2 / 7                                     | 1024&times;512 | 1           | 1            |
-| [paper](https://ieeexplore.ieee.org/abstract/document/9896828)  | AIMC2 | 8 / 8 / 2                                     | 16&times;12    | 32          | 1            |
-| [paper](https://ieeexplore.ieee.org/abstract/document/10067289) | AIMC3 | 8 / 8 / 1                                     | 64&times;256   | 1           | 8            |
-| [paper](https://ieeexplore.ieee.org/abstract/document/9731762)  | DIMC1 | 8 / 8 / 2                                     | 32&times;6     | 1           | 64           |
-| [paper](https://ieeexplore.ieee.org/abstract/document/9731545)  | DIMC2 | 8 / 8 / 1                                     | 32&times;1     | 16          | 2            |
-| [paper](https://ieeexplore.ieee.org/abstract/document/10067260) | DIMC3 | 8 / 8 / 2                                     | 128&times;8    | 8           | 8            |
-| [paper](https://ieeexplore.ieee.org/abstract/document/10067779) | DIMC4 | 8 / 8 / 1                                     | 128&times;8    | 2           | 4            |
+| source                                                      | label | B<sub>i</sub>/B<sub>o</sub>/B<sub>cycle</sub> | macro size     | #cell_group | nb_of_macros |
+|-------------------------------------------------------------|-------|-----------------------------------------------|----------------|-------------|--------------|
+| [1](https://ieeexplore.ieee.org/abstract/document/9431575)  | AIMC1 | 7 / 2 / 7                                     | 1024&times;512 | 1           | 1            |
+| [2](https://ieeexplore.ieee.org/abstract/document/9896828)  | AIMC2 | 8 / 8 / 2                                     | 16&times;12    | 32          | 1            |
+| [3](https://ieeexplore.ieee.org/abstract/document/10067289) | AIMC3 | 8 / 8 / 1                                     | 64&times;256   | 1           | 8            |
+| [4](https://ieeexplore.ieee.org/abstract/document/9731762)  | DIMC1 | 8 / 8 / 2                                     | 32&times;6     | 1           | 64           |
+| [5](https://ieeexplore.ieee.org/abstract/document/9731545)  | DIMC2 | 8 / 8 / 1                                     | 32&times;1     | 16          | 2            |
+| [6](https://ieeexplore.ieee.org/abstract/document/10067260) | DIMC3 | 8 / 8 / 2                                     | 128&times;8    | 8           | 8            |
+| [7](https://ieeexplore.ieee.org/abstract/document/10067779) | DIMC4 | 8 / 8 / 1                                     | 128&times;8    | 2           | 4            |
 
 B<sub>i</sub>/B<sub>o</sub>/B<sub>cycle</sub>: input precision/weight precision/number of bits processed per cycle per input.
 #cell_group: the number of cells sharing one entry to computation logic.
 
-The validation results are displayed in the figure below (assuming 50% input toggle rate and 50% weight sparsity are assumed). 
-The gray bar represents the reported performance value, while the colored bar represents the model estimation.
-The percent above the bars is the ratio between model estimation and the chip measurement results.
+The validation details are summarized below and can be found in [ZigZag-IMC](https://github.com/KULeuven-MICAS/zigzag-imc).
 
 <p align="center">
 <img src="https://github.com/KULeuven-MICAS/carbonspot/blob/master/imc_model_validation/model_validation.png" width="100%" alt="imc model validation plot">
 </p>
 
-## Digital AI Accelerator Cost Model Description
-
-xx
+Our digital performance model is based on [ZigZag](https://github.com/KULeuven-MICAS/zigzag). The validation details can be found at [here](https://kuleuven-micas.github.io/zigzag/hardware.html).
 
 
