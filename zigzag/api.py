@@ -56,6 +56,7 @@ def get_hardware_performance_zigzag(
             opt_stage,  # Reduce all CMEs, returning minimal energy/latency one
             LomaStage,  # Generate multiple temporal mappings (TM)
             # TemporalOrderingConversionStage,  # Based on the fixed temporal mapping order, generate one temporal mapping (TM)
+            CarbonStage,  # Calculate the carbon footprint of the accelerator
             CostModelStage,  # Evaluate generated SM and TM through cost model
         ],
         accelerator=accelerator,  # required by AcceleratorParserStage
