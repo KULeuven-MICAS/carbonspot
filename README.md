@@ -55,8 +55,9 @@ The main script is `expr.py`, which can:
 The function `experiment_1_literature_trend()` can output the equivalent carbon footprint of chips reported in prior works. Following graphs can be generated.
 
 <p align="center">
-<img src="https://github.com/KULeuven-MICAS/carbonspot/blob/master/literature_carbon.png" width="100%" alt="Carbon cost (y axis) versus energy efficiency (x axis) of AI accelerators from the literature in 16-28 nm CMOS technology when applied on the (a) MLPerf-Tiny and (b) MLPerf-Mobile benchmarks. The pie charts show the carbon breakdown into operational (green) and embodied (red) carbon costs for each design. TOP/s/W has been normalized to INT8. The most performant and most carbon-efficient designs are circles out.">
+    <img src="https://github.com/KULeuven-MICAS/carbonspot/blob/master/literature_carbon.png" width="100%" alt="Carbon cost (y axis) versus energy efficiency (x axis) of AI accelerators from the literature in 16-28 nm CMOS technology when applied on the (a) MLPerf-Tiny and (b) MLPerf-Mobile benchmarks. The pie charts show the carbon breakdown into operational (green) and embodied (red) carbon costs for each design. TOP/s/W has been normalized to INT8. The most performant and most carbon-efficient designs are circled out.">
 </p>
+<p align="center"><b>Figure 1:</b> Carbon cost (y axis) versus energy efficiency (x axis) of AI accelerators from the literature in 16-28 nm CMOS technology when applied on the (a) MLPerf-Tiny and (b) MLPerf-Mobile benchmarks. The pie charts show the carbon breakdown into operational (green) and embodied (red) carbon costs for each design. TOP/s/W has been normalized to INT8. The most performant and most carbon-efficient designs are circled out.</p>
 
 Due to the page limitation, please forgive us not listing the paper citations not in the paper. are listed below instead of in the CarbonSpot paper.
 
@@ -111,11 +112,7 @@ A summary of the hardware settings for these chips is provided in the following 
 B<sub>i</sub>/B<sub>o</sub>/B<sub>cycle</sub>: input precision/weight precision/number of bits processed per cycle per input.
 #cell_group: the number of cells sharing one entry to computation logic.
 
-The validation details are summarized below and can be found in [ZigZag-IMC](https://github.com/KULeuven-MICAS/zigzag-imc).
-
-<p align="center">
-<img src="https://github.com/KULeuven-MICAS/carbonspot/blob/master/imc_model_validation/model_validation.png" width="100%" alt="imc model validation plot">
-</p>
+The validation details are summarized below and can be found at [here](https://github.com/KULeuven-MICAS/zigzag-imc).
 
 Our digital performance model is based on [ZigZag](https://github.com/KULeuven-MICAS/zigzag). The validation details can be found at [here](https://kuleuven-micas.github.io/zigzag/hardware.html).
 
