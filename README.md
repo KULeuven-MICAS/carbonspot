@@ -133,7 +133,7 @@ Our digital performance model is based on [ZigZag](https://github.com/KULeuven-M
 
 ## Carbon Model Description
 
-The carbon model is developed based upon [ACT](https://dl.acm.org/doi/abs/10.1145/3470496.3527408). To estimate the carbon footprint of prior works, we derive the following equations (used in `expr.py`):
+The carbon model is developed based upon [ACT](https://dl.acm.org/doi/abs/10.1145/3470496.3527408). To estimate the carbon footprint of prior works, we adapt its equations and derive the following equations (used in `expr.py`):
 
 For Continuous-Active (CA) scenario:
 
