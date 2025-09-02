@@ -5,16 +5,20 @@ CarbonSpot bridges the gap between the performance-oriented DSE framework and th
 
 The part of the performance simulator is inherited from our previous framework [ZigZag-IMC](https://github.com/KULeuven-MICAS/zigzag-imc) and [ZigZag](https://github.com/KULeuven-MICAS/zigzag), with analytical accelerators performance models that have been validated against chip results.
 
-If you find this repository useful to your work, please consider cite our paper in your study: [TBD]
+If you find this repository useful to your work, please consider cite our paper in your study:
 
-<!-- ```bibtex
-@inproceedings{carbonspot2025,
-    title={A Unified Analytical Model for Performance-Carbon Co-Optimization of Edge AI Accelerators},
-    author={Jiacong Sun, Xiaoling Yi, Arne Symons, Georages Gielen, Lieven Eeckhout, Marian Verhelst},
-    booktitle={Proceedings of the 2024 Conference on Example},
-    year={2025}
-}
-``` -->
+```bibtex
+@ARTICLE{11142328,
+  author={Sun, Jiacong and Yi, Xiaoling and Symons, Arne and Gielen, Georges and Eeckhout, Lieven and Verhelst, Marian},
+  journal={IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems}, 
+  title={An Analytical Model for Performance-Carbon Co-Optimization of Edge AI Accelerators}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-1},
+  keywords={Costs;Carbon;Carbon dioxide;Hardware;Computational modeling;AI accelerators;Fabrication;Estimation;Electricity;Analytical models;AI accelerators;carbon cost estimation;performance modeling;edge computing;in-memory computing},
+  doi={10.1109/TCAD.2025.3602746}}
+```
 
 ## Motivation
 
